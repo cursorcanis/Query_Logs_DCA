@@ -2,7 +2,7 @@
 
 namespace Query_Logs_DCA.Models
 {
-    public class Queries
+    public class Query
     {
         public int Id { get; set; }
         public string? Title_of_Query { get; set; }
