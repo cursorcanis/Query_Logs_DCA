@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Query_Logs_DCA.Data;
+using Query_Logs_DCA.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -17,6 +19,14 @@ builder.Services.AddDbContext<Query_Logs_DCAContext>(options =>
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
