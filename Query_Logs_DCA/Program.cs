@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Query_Logs_DCA.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Query_Logs_DCAContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Query_Logs_DCAContext") ?? throw new InvalidOperationException("Connection string 'Query_Logs_DCAContext' not found.")));
 
 var app = builder.Build();
 
