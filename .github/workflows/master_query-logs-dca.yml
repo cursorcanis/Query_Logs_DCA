@@ -28,12 +28,6 @@ jobs:
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-      - name: dotnet install ef
-        run: dotnet tool install -g dotnet-ef
-
-      - name: dotnet bundle migration
-        run:  dotnet ef migrations bundle -p Query_Logs_DCA/Query_Logs_DCA.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate 
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -59,5 +53,5 @@ jobs:
         with:
           app-name: 'Query-logs-DCA'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E648A495BE44BE8A6A80FF154B47ED8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4468FE88D7D54FB48A9078299EE2EC07 }}
           package: .
