@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'Query-logs-DCA'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D0033FC1DDF043F49482DF516FF1561D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E648A495BE44BE8A6A80FF154B47ED8 }}
           package: .
