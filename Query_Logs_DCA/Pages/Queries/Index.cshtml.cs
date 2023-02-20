@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Query_Logs_DCA.Data;
 using Query_Logs_DCA.Models;
@@ -20,6 +21,15 @@ namespace Query_Logs_DCA.Pages.Queries
         }
 
         public IList<Query> Query { get;set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+
+        public SelectList? Category_of_Query { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? Genre_of_Query { get; set; }
+
 
         public async Task OnGetAsync()
         {
