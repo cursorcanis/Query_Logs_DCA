@@ -14,6 +14,8 @@ namespace Query_Logs_DCA.Models
         public string? Category_of_Query { get; set; } = string.Empty;
         //public decimal Price { get; set; }
 
+
+
     }
 }
 

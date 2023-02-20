@@ -13,6 +13,9 @@
 
 <form>
     <p>
+        <select asp-for="Genre_of_Query" asp-items="Model.Category_of_Query">
+            <option value="">All</option>
+        </select>
         Title: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
