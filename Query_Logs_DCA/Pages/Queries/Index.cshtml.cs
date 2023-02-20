@@ -33,6 +33,13 @@ namespace Query_Logs_DCA.Pages.Queries
 
         public async Task OnGetAsync()
         {
+
+            //Use LINQ again to get a list of Query Genres
+            IQueryable<string> genreQuery = from q in _context.Query
+                                            orderby q.Category_of_Query
+                                            select q.Category_of_Query;
+
+
             // This LINQ query parses through 
             var queries = from q in _context.Query
                           select q;
@@ -45,6 +52,12 @@ namespace Query_Logs_DCA.Pages.Queries
                 queries = queries.Where(s => s.Title_of_Query.Contains(SearchString));
             }
 
+            if (!string.IsNullOrEmpty(Genre_of_Query))
+            {
+                queries = queries.Where(x => x.Category_of_Query ==Genre_of_Query);
+            }
+
+            Category_of_Query = new SelectList(await genreQuery.Distinct().ToListAsync());
             Query = await queries.ToListAsync();
         }
     }
