@@ -33,10 +33,19 @@ namespace Query_Logs_DCA.Pages.Queries
 
         public async Task OnGetAsync()
         {
-            if (_context.Query != null)
+            // This LINQ query parses through 
+            var queries = from q in _context.Query
+                          select q;
+
+
+            // Added this entire condition from scratch
+            
+            if (!string.IsNullOrEmpty(SearchString))
             {
-                Query = await _context.Query.ToListAsync();
+                queries = queries.Where(s => s.Title_of_Query.Contains(SearchString));
             }
+
+            Query = await queries.ToListAsync();
         }
     }
 }
