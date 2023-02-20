@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Query_Logs_DCA.Data;
 
@@ -11,9 +12,10 @@ using Query_Logs_DCA.Data;
 namespace Query_Logs_DCA.Migrations
 {
     [DbContext(typeof(Query_Logs_DCAContext))]
-    partial class Query_Logs_DCAContextModelSnapshot : ModelSnapshot
+    [Migration("20230220170820_Erased_All_Fields")]
+    partial class Erased_All_Fields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
